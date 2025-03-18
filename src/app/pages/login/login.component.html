@@ -1,0 +1,61 @@
+<div class="parent">
+    @if (isLogin) {
+    <div class="signup-container">
+        <form id="signup-form" class="signup-form">
+          <h2>Create an Account</h2>
+          <div class="input-group">
+            <label for="fullName"> Full Name</label>
+            <input type="text" id="fullName" name="fullName" [(ngModel)]="registerObj.fullName" placeholder="Enter your Full Name" required>
+            <small id="fullName-error" class="error-message"></small>
+          </div>
+    
+          <div class="input-group">
+            <label for="emailId">Email</label>
+            <input type="email" id="emailId" name="emailId" [(ngModel)]="registerObj.emailId" placeholder="Enter your email" required>
+            <small id="email-error" class="error-message"></small>
+          </div>
+    
+          <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" [(ngModel)]="registerObj.password" placeholder="Enter your password" required>
+            <small id="password-error" class="error-message"></small>
+          </div>
+    
+          <div class="input-group">
+            <label for="mobileNo">Mobile No</label>
+            <input type="text" id="mobileNo" name="mobileNo" [(ngModel)]="registerObj.mobileNo" placeholder="Confirm your password" required>
+            <small id="mobileNo-error" class="error-message"></small>
+          </div>
+    
+          <button type="submit" class="submit-btn" (click)="registerUser()">Sign Up</button>
+    
+          <div class="login-link">
+            <p (click)="isLogin = false">Already have an account? <a>Login here</a></p>
+          </div>
+        </form>
+      </div>
+    } @else {
+        <div class="signup-container">
+            <form id="signup-form" class="signup-form">
+              <h2> Login </h2>
+              <div class="input-group">
+                <label for="emailId">Email</label>
+                <input type="email" id="emailId" name="emailId" [(ngModel)]="userObj.emailId" placeholder="Enter your email" required>
+                <small id="emailId-error" class="error-message"></small>
+              </div>
+        
+              <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password"   [(ngModel)]="userObj.password" placeholder="Enter your password" required>
+                <small id="password-error" class="error-message"></small>
+              </div>
+                
+              <button type="submit" class="submit-btn" (click)="onLogin()"> Login </button>
+        
+              <div class="login-link">
+                <p (click)="isLogin = true">If you are New Here? <a> Sign-Up here</a></p>
+              </div>
+            </form>
+          </div>
+    }
+</div>
